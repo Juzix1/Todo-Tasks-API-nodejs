@@ -1,0 +1,62 @@
+services:
+  phpmyadmin:
+    container_name: phpmyadmin
+    image: phpmyadmin/phpmyadmin:latest
+    restart: always
+    ports:
+      - 8081:80
+    networks:
+      - backend
+
+  db:
+    container_name: mysql
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: todo123
+    ports:
+      - "3306:3306"
+    networks:
+      - backend
+    volumes:
+      - db-vol:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  backend:
+    container_name: backend_api
+    restart: always
+    build:
+      context: backend
+      dockerfile: Dockerfile
+    environment:
+      DB_HOST: ${DB_HOST}
+      DB_PORT: ${DB_PORT}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
+      PORT: ${PORT}
+    ports:
+      - "8080:8080"
+    networks:
+      - backend
+    depends_on:
+      - db
+
+  frontend:
+    container_name: next_frontend
+    restart: unless-stopped
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+    networks:
+      - backend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+networks:
+  backend:
+
+volumes:
+  db-vol:

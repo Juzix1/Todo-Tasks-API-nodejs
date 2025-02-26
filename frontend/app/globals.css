@@ -1,0 +1,218 @@
+/* Body styles for dark gray theme */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #121212; /* Dark background color */
+  color: #e0e0e0; /* Light gray text for contrast */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Main container styling */
+.container {
+  padding: 2rem;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #1e1e1e; /* Dark gray background for the container */
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Slight shadow */
+}
+
+/* Flex container for messages */
+.message-container {
+  display: flex;
+  flex-direction: column; /* Stack the messages vertically */
+  gap: 1.5rem;
+  align-items: center; /* Center the cards horizontally */
+}
+
+/* Styling for each message card */
+.message-card {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #2c2c2c; /* Slightly lighter gray for cards */
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25); /* Elevated shadow effect */
+  transition: all 0.3s ease; /* Smooth transition on hover */
+  position: relative; /* To position buttons on the right */
+}
+
+.message-card:hover {
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.35); /* Hover effect */
+}
+
+/* Header (Message title) styling */
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #f5f5f5; /* Lighter text color for better visibility */
+}
+
+/* Styling for message titles (inside cards) */
+h3 {
+  font-size: 1.4rem;
+  margin: 0;
+  color: #d1d1d1; /* Slightly lighter gray for text inside the card */
+}
+
+/* Styling for message content (inside cards) */
+p {
+  font-size: 1.2rem;
+  color: #b0b0b0; /* Lighter gray text */
+  line-height: 1.6;
+  margin-top: 1rem;
+}
+
+/* Button styling for interactive elements (if added later) */
+button {
+  background-color: #4caf50; /* Green color */
+  color: white;
+  padding: 0.8rem 1.6rem;
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+/* Input field and textarea for consistency */
+input,
+textarea {
+  background-color: #333; /* Dark gray background */
+  color: #e0e0e0; /* Light gray text */
+  border: 1px solid #444; /* Subtle border */
+  padding: 0.8rem;
+  border-radius: 0.4rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #81a1c1; /* Light blue focus border */
+}
+
+/* Scrollbar styling for custom look */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #4a4a4a;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #6f6f6f;
+}
+
+/* Responsive layout for smaller screen widths (messages still in column) */
+@media (min-width: 640px) {
+  .message-container {
+    flex-direction: column; /* Keep messages in column layout */
+    gap: 1.5rem;
+    align-items: center; /* Center the cards */
+  }
+}
+
+@media (min-width: 1024px) {
+  .message-container {
+    flex-direction: column; /* Keep messages in column layout */
+    gap: 1.5rem;
+    align-items: center; /* Center the cards */
+  }
+
+  .message-card {
+    width: 100%; /* Take full width on larger screens */
+  }
+}
+
+/* Add button styles for Update and Delete */
+.update-button, .delete-button {
+  background-color: #4caf50; /* Green for update */
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.update-button:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+.delete-button {
+  background-color: #f44336; /* Red for delete */
+}
+
+.delete-button:hover {
+  background-color: #e53935; /* Darker red on hover */
+}
+
+/* Position buttons to the right with space between them */
+.message-card .message-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.message-card .message-header .button-group {
+  display: flex;
+  gap: 10px; /* Space between buttons */
+}
+
+/* Input field for editing messages */
+.edit-input {
+  background-color: #333;
+  color: #e0e0e0;
+  border: 1px solid #444;
+  padding: 0.8rem;
+  border-radius: 0.4rem;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.save-update-button {
+  background-color: #2196f3; /* Blue for save */
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.save-update-button:hover {
+  background-color: #1976d2;
+}
+.create-new-message-button {
+  background-color: #2196f3; /* Blue color */
+  color: white;
+  padding: 0.8rem 1.6rem;
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  transition: background-color 0.3s ease;
+}
+
+.create-new-message-button:hover {
+  background-color: #1976d2; /* Darker blue on hover */
+}
+
